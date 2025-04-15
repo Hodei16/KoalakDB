@@ -32,5 +32,20 @@ public class SweetDAO {
 			return false;
 		}
 	}
+	public boolean eguneratuSweet(Sweet pS) {
+		String query = "UPDATE sweet SET stock=? WHERE kodea=? " ;
+		try (PreparedStatement pst = konexioa.prepareStatement(query)) {
+			pst.setInt(1, pS.getStock()-1);
+			pst.setInt(2, pS.getKodea());
+			int rowsAffected = pst.executeUpdate();
+			pS.setStock(pS.getStock()-1);
+				
+			return rowsAffected > 0;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}		
+	}
+	
 
 }
