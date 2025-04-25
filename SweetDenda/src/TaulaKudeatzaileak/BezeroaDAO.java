@@ -1,11 +1,7 @@
 package TaulaKudeatzaileak;
-//sss
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 
 import Taulak.Bezeroa;
+import java.sql.*;
 
 public class BezeroaDAO {
     private Connection konexioa;
@@ -14,19 +10,19 @@ public class BezeroaDAO {
         this.konexioa = konexioa;
     }
 
-    public boolean gehituBezero(Bezeroa bezero) {
-        String query = "INSERT INTO BEZEROA (NAN, TELEFONO, BANKU_KONTUA, HELBIDEA, PASAHITZA, IZENA, ABIZENA, POSTA_ELEKTRONIKOA) " +
+    public boolean gehituBezero(Bezeroa bezeroa) {
+        String query = "INSERT INTO BEZEROA (NAN, TELEFONO, BANKU_KONTUA, HELBIDEA, PASAHITZA, IZENA, ABIZENA, POSTA_1ELEKTRONIKOA) " +
                        "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         
         try (PreparedStatement pst = konexioa.prepareStatement(query)) {
-            pst.setString(1, bezero.getNan());
-            pst.setInt(2, bezero.getTelefono());
-            pst.setString(3, bezero.getBankuKontua());
-            pst.setString(4, bezero.getHelbidea());
-            pst.setString(5, bezero.getPasahitza());
-            pst.setString(6, bezero.getIzena());
-            pst.setString(7, bezero.getAbizena());
-            pst.setString(8, bezero.getPostaElektronikoa());
+            pst.setString(1, bezeroa.getNan());
+            pst.setInt(2, bezeroa.getTelefono());
+            pst.setString(3, bezeroa.getBankuKontua());
+            pst.setString(4, bezeroa.getHelbidea());
+            pst.setString(5, bezeroa.getPasahitza());
+            pst.setString(6, bezeroa.getIzena());
+            pst.setString(7, bezeroa.getAbizena());
+            pst.setString(8, bezeroa.getPostaElektronikoa());
             
             int rowsAffected = pst.executeUpdate();
             return rowsAffected > 0;

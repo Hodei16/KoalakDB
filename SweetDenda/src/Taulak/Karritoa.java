@@ -4,15 +4,15 @@ import java.time.LocalDateTime;
 
 public class Karritoa {
     private int id;
-    private LocalDateTime dataOrdua;
+    private String dataOrdua;
     private String bukatu;
-    private Bezeroa bezeroa;
+    private String NAN;
 
-    public Karritoa(int id, LocalDateTime dataOrdua, String bukatu, Bezeroa bezeroa) {
+    public Karritoa(int id, String dataOrdua, String bukatu, String NAN) {
         this.id = id;
         this.dataOrdua = dataOrdua;
         this.bukatu = bukatu;
-        this.bezeroa = bezeroa;
+        this.NAN = NAN;
     }
 
 	public int getId() {
@@ -23,11 +23,11 @@ public class Karritoa {
 		this.id = id;
 	}
 
-	public LocalDateTime getDataOrdua() {
+	public String getDataOrdua() {
 		return dataOrdua;
 	}
 
-	public void setDataOrdua(LocalDateTime dataOrdua) {
+	public void setDataOrdua(String dataOrdua) {
 		this.dataOrdua = dataOrdua;
 	}
 
@@ -39,12 +39,12 @@ public class Karritoa {
 		this.bukatu = bukatu;
 	}
 
-	public Bezeroa getBezeroa() {
-		return bezeroa;
+	public String getNAN() {
+		return NAN;
 	}
 
-	public void setBezeroa(Bezeroa bezeroa) {
-		this.bezeroa = bezeroa;
+	public void setBezeroa(String NAN) {
+		this.NAN = NAN;
 	}
 }
 
