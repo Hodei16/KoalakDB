@@ -32,6 +32,23 @@ public class SweetDAO {
 			return false;
 		}
 	}
+	
+	public boolean kenduSweet(int kodea) {
+		String query = "DELETE FROM SWEET WHERE KODEA = ?";
+		try (PreparedStatement pst = konexioa.prepareStatement(query)){
+			pst.SetInt(1, kodea);
+
+			int rowsAffected = pst.executeUpdate();
+			
+			return rowsAffected > 0;
+			
+		} catch (SQLException e) {
+	        e.printStackTrace();
+	        return false;
+	    }
+		}
+	}
+	
 	public boolean eguneratuSweet(Sweet pS) {
 		String query = "UPDATE sweet SET stock=? WHERE kodea=? " ;
 		try (PreparedStatement pst = konexioa.prepareStatement(query)) {
